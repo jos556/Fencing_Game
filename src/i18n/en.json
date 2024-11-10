@@ -1,0 +1,32 @@
+{
+  "menu": {
+    "title": "Fencing Sport Game",
+    "subtitle": "Arena of Competition and Glory",
+    "start": "Start Match",
+    "language": "Language",
+    "volume": "Volume",
+    "theme": "Venue",
+    "themes": {
+      "classic": "Olympic Arena",
+      "modern": "Training Center",
+      "medieval": "Traditional Salle"
+    }
+  },
+  "character": {
+    "select": "Select Athlete",
+    "confirm": "Confirm",
+    "title": "Fencing Athlete"
+  },
+  "battle": {
+    "score": "Score",
+    "time": "Time",
+    "exit": "Exit",
+    "ready": "Ready",
+    "allez": "Allez",
+    "halt": "Halt",
+    "gameOver": "Game Over",
+    "playerWins": "You are a Great Fencer!",
+    "aiWins": "Keep Practicing!",
+    "playAgain": "Play Again"
+  }
+} 

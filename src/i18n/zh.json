@@ -1,0 +1,35 @@
+{
+  "menu": {
+    "title": "擊劍運動遊戲",
+    "subtitle": "競技與榮耀的殿堂",
+    "start": "開始比賽",
+    "language": "語言",
+    "volume": "音量",
+    "theme": "場地",
+    "themes": {
+      "classic": "奧運賽場",
+      "modern": "訓練中心",
+      "medieval": "傳統劍館"
+    }
+  },
+  "character": {
+    "select": "選擇選手",
+    "confirm": "確認",
+    "cancel": "取消",
+    "title": "擊劍選手",
+    "playerSelected": "玩家選擇",
+    "aiSelected": "AI 選擇"
+  },
+  "battle": {
+    "score": "比分",
+    "time": "時間",
+    "exit": "退出",
+    "ready": "準備",
+    "allez": "開始",
+    "halt": "停止",
+    "gameOver": "遊戲結束",
+    "playerWins": "你是擊劍好手！",
+    "aiWins": "再接再厲！",
+    "playAgain": "再來一局"
+  }
+} 

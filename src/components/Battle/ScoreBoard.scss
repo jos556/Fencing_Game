@@ -1,0 +1,46 @@
+.score-board {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #0066cc;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  .score {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+
+    .player-score,
+    .ai-score {
+      min-width: 2ch;
+      text-align: center;
+      transition: all 0.3s ease;
+
+      &.updated {
+        color: #0066cc;
+        transform: scale(1.2);
+      }
+    }
+
+    .separator {
+      color: #0066cc;
+    }
+  }
+
+  .time {
+    font-size: 1.5rem;
+    color: #0066cc;
+    font-family: 'Roboto', sans-serif;
+  }
+} 

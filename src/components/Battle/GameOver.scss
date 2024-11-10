@@ -1,0 +1,81 @@
+.game-over {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+  .result-board {
+    background: rgba(20, 20, 20, 0.95);
+    border: 2px solid #0066cc;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    min-width: 300px;
+
+    h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .final-score {
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+
+      .separator {
+        color: #0066cc;
+      }
+    }
+
+    .winner {
+      color: #0066cc;
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+
+      button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.restart-button {
+          background: #0066cc;
+          color: white;
+
+          &:hover {
+            background: #0077ee;
+            transform: translateY(-2px);
+          }
+        }
+
+        &.exit-button {
+          background: rgba(255, 255, 255, 0.1);
+          color: white;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.2);
+          }
+        }
+      }
+    }
+  }
+} 

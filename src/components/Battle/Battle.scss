@@ -1,0 +1,302 @@
+.battle-scene {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+
+  .battle-area {
+    flex: 1;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .audience-left,
+    .audience-right {
+      position: absolute;
+      top: 0;
+      width: 35%;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 10px;
+      z-index: 1;
+      
+      // 觀眾背景
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(30, 30, 30, 0.9);
+        z-index: 0;
+      }
+
+      // 觀眾
+      .audience-member {
+        width: 30px;
+        height: 50px;
+        position: relative;
+        z-index: 1;
+        animation: audience-movement 2s infinite alternate;
+
+        .head {
+          width: 20px;
+          height: 20px;
+          background: #666;
+          border-radius: 50%;
+          margin: 0 auto;
+        }
+
+        .body {
+          width: 25px;
+          height: 30px;
+          background: #555;
+          margin: -5px auto 0;
+          border-radius: 5px;
+        }
+
+        @for $i from 1 through 50 {
+          &:nth-child(#{$i}) {
+            animation-delay: #{$i * 0.1}s;
+          }
+        }
+      }
+    }
+
+    .audience-left {
+      left: 0;
+    }
+
+    .audience-right {
+      right: 0;
+    }
+
+    .fencing-piste {
+      width: 8%; // 縮小劍道寬度
+      height: 90%;
+      background: #333;
+      border: 2px solid #666;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0;
+      z-index: 2;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: #fff;
+        transform: translateX(-50%);
+      }
+
+      .player-character,
+      .ai-character {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.2s ease;
+      }
+    }
+  }
+
+  .player-character,
+  .ai-character {
+    width: 60px;
+    height: 160px;
+    z-index: 2;
+
+    .character-body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      .head {
+        width: 30px;
+        height: 30px;
+        position: relative;
+
+        .mask {
+          width: 100%;
+          height: 100%;
+          background: #333;
+          border: 3px solid;
+          border-radius: 50%;
+        }
+      }
+
+      .torso {
+        width: 40px;
+        height: 70px;
+        margin-top: -5px;
+        position: relative;
+
+        .stripe {
+          position: absolute;
+          left: 50%;
+          top: 0;
+          bottom: 0;
+          width: 4px;
+          transform: translateX(-50%);
+        }
+      }
+
+      .legs {
+        display: flex;
+        gap: 5px;
+        margin-top: -5px;
+
+        .leg {
+          width: 15px;
+          height: 60px;
+          background: inherit;
+        }
+      }
+
+      .sword {
+        position: absolute;
+        width: 4px;
+        height: 100px;
+        background: linear-gradient(to top, #C0C0C0 0%, #E8E8E8 100%);
+        top: 50%;
+        z-index: 4;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          width: 16px;
+          height: 16px;
+          background: #A0A0A0;
+          border-radius: 50%;
+          top: 70%;
+          left: -6px;
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+  }
+
+  .player-character {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease;
+
+    .sword {
+      left: -30px;
+      transform: translateY(-100%) rotate(0deg);
+      transition: transform 0.2s ease;
+    }
+
+    &.thrusting .sword {
+      transform: translateY(-100%) rotate(-30deg);
+    }
+
+    &.blocking .sword {
+      transform: translateY(-100%) rotate(45deg);
+    }
+  }
+
+  .ai-character {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease;
+
+    .sword {
+      right: -30px;
+      transform: translateY(0%) rotate(-180deg);
+      transition: transform 0.2s ease;
+    }
+
+    &.thrusting .sword {
+      transform: translateY(0%) rotate(-150deg);
+    }
+
+    &.blocking .sword {
+      transform: translateY(0%) rotate(-225deg);
+    }
+  }
+
+  .referee {
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 150px;
+    z-index: 2;
+
+    .referee-body {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .head {
+        width: 25px;
+        height: 25px;
+        background: #444;
+        border-radius: 50%;
+        margin-bottom: 5px;
+      }
+
+      .torso {
+        width: 35px;
+        height: 70px;
+        background: #333;
+        position: relative;
+        
+        &::after { // 裁判的手臂
+          content: '';
+          position: absolute;
+          right: -15px;
+          top: 20px;
+          width: 25px;
+          height: 5px;
+          background: #333;
+          transform: rotate(-45deg);
+        }
+      }
+
+      .legs {
+        display: flex;
+        gap: 5px;
+
+        .leg {
+          width: 15px;
+          height: 50px;
+          background: #333;
+        }
+      }
+    }
+  }
+
+  @keyframes audience-movement {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+} 
